@@ -1,11 +1,13 @@
 Package: LinearModel.new
 Type: Package
 Title: Linear Regression by ordinary least squares (OLS)
-Version: 0.1.0
+Version: 0.1.1
 Author: Zhengrui Huang
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Maintainer: Zhengrui Huang <zrhuang@umich.edu>
+Description: Performing linear regression analysis using the 
+    Ordinary Least Squares (OLS) method and calculate the significant 
+    coefficients and parameters. Both simple linear regression 
+    and multiple regression could be fitted by this function.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
