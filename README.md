@@ -2,7 +2,7 @@
 <!-- badges: start -->
   [![R-CMD-check](https://github.com/huangzr1228/biostat625-hw3/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/huangzr1228/biostat625-hw3/actions/workflows/R-CMD-check.yaml)
   <!-- badges: end -->
-The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate the significant coefficients and other parameters of the linear regression. With the input of the formula and data, the package will return the list of results where the coefficents, t statistic, p value, F statistic, r squared etc. would be included. 
+The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate the significant coefficients and other parameters of the linear regression. With the input of the formula and data, the package will return the list of results where the coefficents, t statistic, p value, r squared etc. would be included. 
 ## Installation
 This package could be installed from Github：
 ```r
