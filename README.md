@@ -3,9 +3,6 @@
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
 
 The formula of the linear regression by OLS:
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 $$
 Y = X\beta + \epsilon
 $$
@@ -55,11 +52,10 @@ $$
 \hat{\beta} = (X^TX)^{-1}X^TY
 $$
 
-With the input of the formula and data, the package will return the data frame of results.
-
-Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual
-
-Coefficients: estimate, standard error, t value and p value Other statistics: residual standard error, R-squared, adjusted R-squared, F statistic and p value for F test
+With the input of the formula and data, the package will return the data frame of results.<br>
+Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual  
+Coefficients: estimate, standard error, t value and p value  
+Other statistics: residual standard error, R-squared, adjusted R-squared, F statistic and p value for F test
 
 
 ## Installation
@@ -72,8 +68,8 @@ devtools::install_github("huangzr1228/LinearModel.new")
 The function LinearReg() in the R package "LinearModel.new" could be used in this way
 1. Load the ”LinearModel.new" package into the R session
 2. Load the data sets (built-in datasets or simulated datasets or other datasets)
-3. Call the function LinearReg() in LinearReg(formula, data)
-formula: The model requires to be fitted, described as "response variable ~ explanatory variables"
+3. Call the function LinearReg() in LinearReg(formula, data)  
+formula: The model requires to be fitted, described as "response variable ~ explanatory variables"  
 data: A data frame of the explanatory variables in the model
 4. This function will return the data frame of all results, including the statistical measures of residuals, coefficients, and other significant statistics
 
