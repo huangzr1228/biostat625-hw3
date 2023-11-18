@@ -5,9 +5,10 @@ Version: 0.1.1
 Author: Zhengrui Huang
 Maintainer: Zhengrui Huang <zrhuang@umich.edu>
 Description: Performing linear regression analysis using the 
-    Ordinary Least Squares (OLS) method and calculate the significant 
-    coefficients and parameters. Both simple linear regression 
-    and multiple regression could be fitted by this function.
+    Ordinary Least Squares (OLS) method and calculate the statistical 
+    measures of residuals, coefficients, and other significant statistics.
+    Both simple linear regression and multiple regression could be fitted 
+    by this function.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
