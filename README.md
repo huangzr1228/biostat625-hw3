@@ -54,6 +54,7 @@ X =
 \]
 
 With the input of the formula and data, the package will return the data frame of results where the coefficents, t statistic, p value, F statistic, r squared etc. would be included. 
+
 ## Installation
 You can install the development version of LinearModel.new from [GitHub]GitHub(https://github.com/huangzr1228/biostat625-hw3) with:
 ```r
