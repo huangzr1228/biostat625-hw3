@@ -17,59 +17,11 @@ knitr::opts_chunk$set(
 # LinearModel.new
 ## Introduction
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate the statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
- 
-The formula of the linear regression by OLS:
-\[
-Y = X\beta + \epsilon
-\]
 
-\[
-Y = 
-\begin{bmatrix}
-Y_1 \\
-Y_2 \\
-\vdots \\
-Y_n
-\end{bmatrix}_{n \times 1}
-\quad
-\epsilon = 
-\begin{bmatrix}
-\epsilon_1 \\
-\epsilon_2 \\
-\vdots \\
-\epsilon_n
-\end{bmatrix}_{n \times 1}
-\]
-
-\[
-X = 
-\begin{bmatrix}
-1 & X_{11} & X_{12} & \dots & X_{1,p-1} \\
-1 & X_{21} & X_{22} & \dots & X_{2,p-1} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-1 & X_{n1} & X_{n2} & \dots & X_{n,p-1}
-\end{bmatrix}_{n \times p}
-\quad
-\beta = 
-\begin{bmatrix}
-\beta_0 \\
-\beta_1 \\
-\beta_2 \\
-\vdots \\
-\beta_{p-1}
-\end{bmatrix}_{p \times 1}
-\]
-
-\[
-\frac{\partial SSE}{\partial \hat{\beta}} = -2X^T Y + 2X^T X  \hat{\beta} = 0
-\]
-
-
-\[
-\hat{\beta} = (X^TX)^{-1}X^TY
-\]
-
-With the input of the formula and data, the package will return the data frame of results where the coefficients, t statistic, p value, F statistic, r squared etc. would be included. 
+With the input of the formula and data, the package will return the data frame of results.<br>
+Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual  
+Coefficients: estimate, standard error, t value and p value  
+Other statistics: residual standard error, R-squared, adjusted R-squared, F statistic and p value for F test
 
 ## Installation
 You can install the development version of LinearModel.new from [GitHub]GitHub(https://github.com/huangzr1228/biostat625-hw3) with:
@@ -141,7 +93,7 @@ residuals_3Q <- quantile(residuals, 0.75)
 residuals_max <- max(residuals)
 ```
 
-Test the correctness and efficiency of the minimum residuals Residual_Min
+Test the correctness and efficiency of the minimum residual Residual_Min
 ```{r}
 correctness_check <- all.equal(new_model$Residuals[["Residual_Min"]],
                                residuals_min,
@@ -155,7 +107,7 @@ benchmark_results <- bench::mark(new_model$Residuals[["Residual_Min"]],
 print(benchmark_results)
 ```
 
-Test the correctness and efficiency of the 1Q residuals Residual_1Q
+Test the correctness and efficiency of the 1Q residual Residual_1Q
 ```{r}
 correctness_check <- all.equal(new_model$Residuals[["Residual_1Q"]],
                                unname(residuals_1Q["25%"]),
@@ -171,7 +123,7 @@ benchmark_results <- bench::mark(
 print(benchmark_results)
 ```
 
-Test the correctness and efficiency of the median residuals Residual_Median
+Test the correctness and efficiency of the median residual Residual_Median
 ```{r}
 correctness_check <- all.equal(new_model$Residuals[["Residual_Median"]],
                                residuals_median,
@@ -185,7 +137,7 @@ benchmark_results <- bench::mark(new_model$Residuals[["Residual_Median"]],
 print(benchmark_results)
 ```
 
-Test the correctness and efficiency of the 3Q residuals Residual_3Q
+Test the correctness and efficiency of the 3Q residual Residual_3Q
 ```{r}
 correctness_check <- all.equal(new_model$Residuals[["Residual_3Q"]],
                                unname(residuals_3Q["75%"]),
@@ -201,7 +153,7 @@ benchmark_results <- bench::mark(
 print(benchmark_results)
 ```
 
-Test the correctness and efficiency of the maximum residuals Residual_Max
+Test the correctness and efficiency of the maximum residual Residual_Max
 ```{r}
 correctness_check <- all.equal(new_model$Residuals[["Residual_Max"]],
                                residuals_max,
