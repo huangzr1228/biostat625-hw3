@@ -2,6 +2,10 @@
 <!-- badges: start -->
   [![R-CMD-check](https://github.com/huangzr1228/biostat625-hw3/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/huangzr1228/biostat625-hw3/actions/workflows/R-CMD-check.yaml)
   <!-- badges: end -->
+  
+<!-- badges: start -->
+<!-- badges: end -->
+
 ## Introduction
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
 
