@@ -3,10 +3,15 @@
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
 
 The formula of the linear regression by OLS:
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 $$
 Y = X\beta + \epsilon
 $$
-
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 $$
 Y = 
 \begin{bmatrix}
@@ -24,7 +29,9 @@ Y_n
 \epsilon_n
 \end{bmatrix}_{n \times 1}
 $$
-
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 $$
 X = 
 \begin{bmatrix}
