@@ -3,6 +3,9 @@
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
 
 The formula of the linear regression by OLS:
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 $$
 Y = X\beta + \epsilon
 $$
@@ -56,13 +59,11 @@ With the input of the formula and data, the package will return the data frame o
 
 Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual
 
-Coefficients: estimate, standard error, t value and p value Other statistics: residual standard error, R-squared, adjusted
-
-R-squared, F statistic and p value for F test
+Coefficients: estimate, standard error, t value and p value Other statistics: residual standard error, R-squared, adjusted R-squared, F statistic and p value for F test
 
 
 ## Installation
-You can install the development version of LinearModel.new from [GitHub]GitHub(https://github.com/huangzr1228/biostat625-hw3) with:
+You can install the development version of LinearModel.new from [GitHub](https://github.com/huangzr1228/biostat625-hw3) with:
 ```r
 install.packages("LinearModel.new")
 devtools::install_github("huangzr1228/LinearModel.new")
