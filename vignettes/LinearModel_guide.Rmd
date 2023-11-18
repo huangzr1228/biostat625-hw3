@@ -26,7 +26,11 @@ Other statistics: residual standard error, R-squared, adjusted R-squared, F stat
 ## Installation
 You can install the development version of LinearModel.new from [GitHub]GitHub(https://github.com/huangzr1228/biostat625-hw3) with:
 ```{r}
-devtools::install_github("huangzr1228/LinearModel.new")
+# install the package
+devtools::install_github("huangzr1228/biostat625-hw3")
+
+# build the vignitte
+devtools::install_github('huangzr1228/biostat625-hw3',build_vignettes =T)
 ```
 
 ## Usage
@@ -170,7 +174,7 @@ print(benchmark_results)
 ### Coefficients
 Test the correctness and efficiency of the Estimate \( \hat{\beta} \)
 ```{r}
-estimates <- as.vector(new_model2$Coefficients$Estimate)
+estimates <- as.vector(new_model$Coefficients$Estimate)
 names(estimates) <- rownames(new_model$Coefficients)
 
 correctness_check <- all.equal(estimates,
