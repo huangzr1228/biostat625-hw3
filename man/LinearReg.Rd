@@ -7,17 +7,19 @@
 LinearReg(formula, data)
 }
 \arguments{
-\item{formula}{the model requires to be fitted
-it is described as "response variable ~ explanatory variables"}
+\item{formula}{The model requires to be fitted
+It is described as "response variable ~ explanatory variables"}
 
-\item{data}{a data frame of the explanatory variables in the model}
+\item{data}{A data frame of the explanatory variables in the model}
 }
 \value{
-a list of the output significant coefficients and parameters
+A list of the output significant coefficients and parameters
 }
 \description{
 This function performs the linear regression by Ordinary Least Squares (OLS).
-    It calculates the significant coefficients and parameters.
+    The statistical measures of residuals, coefficients, and other significant statistics
+    will be calculated
+    Both simple linear regression and multiple linear regression could be performed
 }
 \examples{
 simple linear regression
