@@ -1,63 +1,9 @@
 # LinearModel.new
+<!-- badges: start -->
+  [![R-CMD-check](https://github.com/huangzr1228/biostat625-hw3/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/huangzr1228/biostat625-hw3/actions/workflows/R-CMD-check.yaml)
+  <!-- badges: end -->
 ## Introduction
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
-
-The formula of the linear regression by OLS:
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-$$
-Y = X\beta + \epsilon
-$$
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-$$
-Y = 
-\begin{bmatrix}
-Y_1 \\
-Y_2 \\
-\vdots \\
-Y_n
-\end{bmatrix}_{n \times 1}
-\quad
-\epsilon = 
-\begin{bmatrix}
-\epsilon_1 \\
-\epsilon_2 \\
-\vdots \\
-\epsilon_n
-\end{bmatrix}_{n \times 1}
-$$
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-$$
-X = 
-\begin{bmatrix}
-1 & X_{11} & X_{12} & \dots & X_{1,p-1} \\
-1 & X_{21} & X_{22} & \dots & X_{2,p-1} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-1 & X_{n1} & X_{n2} & \dots & X_{n,p-1}
-\end{bmatrix}_{n \times p}
-\quad
-\beta = 
-\begin{bmatrix}
-\beta_0 \\
-\beta_1 \\
-\beta_2 \\
-\vdots \\
-\beta_{p-1}
-\end{bmatrix}_{p \times 1}
-$$
-
-$$
-\frac{\partial SSE}{\partial \hat{\beta}} = -2X^T Y + 2X^T X \hat{\beta} = 0
-$$
-
-$$
-\hat{\beta} = (X^TX)^{-1}X^TY
-$$
 
 With the input of the formula and data, the package will return the data frame of results.<br>
 Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual  
