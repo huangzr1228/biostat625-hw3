@@ -26,7 +26,6 @@ Other statistics: residual standard error, R-squared, adjusted R-squared, F stat
 ## Installation
 You can install the development version of LinearModel.new from [GitHub]GitHub(https://github.com/huangzr1228/biostat625-hw3) with:
 ```{r}
-install.packages("LinearModel.new")
 devtools::install_github("huangzr1228/LinearModel.new")
 ```
 
