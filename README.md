@@ -19,7 +19,11 @@ Other statistics: residual standard error, R-squared, adjusted R-squared, F stat
 ## Installation
 You can install the development version of LinearModel.new from [GitHub](https://github.com/huangzr1228/biostat625-hw3) with:
 ```r
-devtools::install_github("huangzr1228/LinearModel.new")
+# install the package
+devtools::install_github("huangzr1228/biostat625-hw3")
+
+# build the vignitte
+devtools::install_github('huangzr1228/biostat625-hw3',build_vignettes =T)
 ```
 ## Usage
 The function LinearReg() in the R package "LinearModel.new" could be used in this way
