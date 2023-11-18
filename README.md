@@ -3,11 +3,11 @@
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
 
 The formula of the linear regression by OLS:
-\[
+$$
 Y = X\beta + \epsilon
-\]
+$$
 
-\[
+$$
 Y = 
 \begin{bmatrix}
 Y_1 \\
@@ -23,9 +23,9 @@ Y_n
 \vdots \\
 \epsilon_n
 \end{bmatrix}_{n \times 1}
-\]
+$$
 
-\[
+$$
 X = 
 \begin{bmatrix}
 1 & X_{11} & X_{12} & \dots & X_{1,p-1} \\
@@ -42,18 +42,24 @@ X =
 \vdots \\
 \beta_{p-1}
 \end{bmatrix}_{p \times 1}
-\]
+$$
 
-\[
-\frac{\partial SSE}{\partial \hat{\beta}} = -2X^T Y + 2X^T X  \hat{\beta} = 0
-\]
+$$
+\frac{\partial SSE}{\partial \hat{\beta}} = -2X^T Y + 2X^T X \hat{\beta} = 0
+$$
 
-
-\[
+$$
 \hat{\beta} = (X^TX)^{-1}X^TY
-\]
+$$
 
-With the input of the formula and data, the package will return the data frame of results where the coefficents, t statistic, p value, F statistic, r squared etc. would be included. 
+With the input of the formula and data, the package will return the data frame of results.
+
+Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual
+
+Coefficients: estimate, standard error, t value and p value Other statistics: residual standard error, R-squared, adjusted
+
+R-squared, F statistic and p value for F test
+
 
 ## Installation
 You can install the development version of LinearModel.new from [GitHub]GitHub(https://github.com/huangzr1228/biostat625-hw3) with:
@@ -68,7 +74,7 @@ The function LinearReg() in the R package "LinearModel.new" could be used in thi
 3. Call the function LinearReg() in LinearReg(formula, data)
 formula: The model requires to be fitted, described as "response variable ~ explanatory variables"
 data: A data frame of the explanatory variables in the model
-4. This function will return the data frame of all results, including the statistical    measures of residuals, coefficients, and other significant statistics
+4. This function will return the data frame of all results, including the statistical measures of residuals, coefficients, and other significant statistics
 
 ```r
 library(LinearModel.new)
