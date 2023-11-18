@@ -4,6 +4,7 @@
   <!-- badges: end -->
   
 <!-- badges: start -->
+[![codecov](https://codecov.io/gh/huangzr1228/biostat625-hw3/branch/main/graph/badge.svg)](https://codecov.io/gh/huangzr1228/biostat625-hw3)
 <!-- badges: end -->
 
 ## Introduction
