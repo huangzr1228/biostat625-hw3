@@ -22,7 +22,7 @@ This function performs the linear regression by Ordinary Least Squares (OLS).
     Both simple linear regression and multiple linear regression could be performed
 }
 \examples{
-simple linear regression
+# Simple Linear Regression
 LinearReg(Murder ~ UrbanPop, data = USArrests)
 
 x <- c(1, 2, 3, 4, 5)
@@ -30,7 +30,7 @@ y <- c(1.5, 3.0, 4.5, 6.0, 8.5)
 df <- data.frame(y = y, x = x)
 LinearReg(y ~ x, data = df)
 
-multiple linear regression
+# Multiple Linear Regression
 LinearReg(Murder ~ Assault + UrbanPop + Rape, data = USArrests)
 
 set.seed(123)

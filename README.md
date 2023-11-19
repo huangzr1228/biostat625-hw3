@@ -23,7 +23,10 @@ You can install the development version of LinearModel.new from [GitHub](https:/
 devtools::install_github("huangzr1228/biostat625-hw3")
 
 # build the vignitte
-devtools::install_github('huangzr1228/biostat625-hw3',build_vignettes =T)
+devtools::install_github('huangzr1228/biostat625-hw3', build_vignettes =T)
+
+# browse the vignette 
+browseVignettes(package = "LinearModel.new")
 ```
 ## Usage
 The function LinearReg() in the R package "LinearModel.new" could be used in this way

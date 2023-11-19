@@ -9,9 +9,10 @@
 #'
 #' @return A list of the output significant coefficients and parameters
 #' @export
-#'
+#' @import stats
+#' @importFrom stats na.omit model.frame model.response model.matrix median pf pt quantile
 #' @examples
-#' simple linear regression
+#' # Simple Linear Regression
 #' LinearReg(Murder ~ UrbanPop, data = USArrests)
 #'
 #' x <- c(1, 2, 3, 4, 5)
@@ -19,7 +20,7 @@
 #' df <- data.frame(y = y, x = x)
 #' LinearReg(y ~ x, data = df)
 #'
-#' multiple linear regression
+#' # Multiple Linear Regression
 #' LinearReg(Murder ~ Assault + UrbanPop + Rape, data = USArrests)
 #'
 #' set.seed(123)

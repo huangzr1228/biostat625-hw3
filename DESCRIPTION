@@ -9,11 +9,15 @@ Description: Performing linear regression analysis using the
     measures of residuals, coefficients, and other significant statistics.
     Both simple linear regression and multiple regression could be fitted 
     by this function.
-License: What license is it under?
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
+Imports:
+    stats
 Suggests: 
+    devtools,
+    bench,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
