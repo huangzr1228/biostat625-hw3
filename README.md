@@ -35,7 +35,7 @@ browseVignettes(package = "LinearModel.new")
 ## Usage
 The function LinearReg() in the R package "LinearModel.new" could be used in this way
 1. Load the ”LinearModel.new" package into the R session
-2. Load the data sets (built-in datasets or simulated datasets or other datasets)
+2. Load the datasets (built-in datasets or simulated datasets or other datasets)
 3. Call the function LinearReg() in LinearReg(formula, data)  
 formula: The model requires to be fitted, described as "response variable ~ explanatory variables"  
 data: A data frame of the explanatory variables in the model
