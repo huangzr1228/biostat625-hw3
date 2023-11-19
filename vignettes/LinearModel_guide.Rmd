@@ -18,10 +18,12 @@ knitr::opts_chunk$set(
 ## Introduction
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate the statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
 
-With the input of the formula and data, the package will return the data frame of results.<br>
-Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual  
-Coefficients: estimate, standard error, t value and p value  
-Other statistics: residual standard error, R-squared, adjusted R-squared, F statistic and p value for F test
+With the input of the formula and data, the package will return the data frame of results
+
+* Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual  
+* Coefficients: estimate, standard error, t value and p value  
+
+* Other statistics: residual standard error, R-squared, adjusted R-squared, F statistic and p value for F test
 
 ## Installation
 You can install the development version of LinearModel.new from [GitHub](https://github.com/huangzr1228/biostat625-hw3) with:
@@ -107,12 +109,13 @@ residuals_max <- max(residuals)
 
 Test the correctness and efficiency of the minimum residual Residual_Min
 ```{r}
-correctness_check <- all.equal(new_model$Residuals[["Residual_Min"]],
+correctness_check <- all.equal(new_model$Residuals["Residual_Min"],
                                residuals_min,
-                               tolerance = 1e-5)
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
-benchmark_results <- bench::mark(new_model$Residuals[["Residual_Min"]],
+benchmark_results <- bench::mark(new_model$Residuals["Residual_Min"],
                                  residuals_min,
                                  iterations = 10,
                                  check = FALSE)
@@ -121,28 +124,30 @@ print(benchmark_results)
 
 Test the correctness and efficiency of the 1Q residual Residual_1Q
 ```{r}
-correctness_check <- all.equal(new_model$Residuals[["Residual_1Q"]],
-                               unname(residuals_1Q["25%"]),
-                               tolerance = 1e-5)
+correctness_check <- all.equal(new_model$Residuals["Residual_1Q"],
+                               residuals_1Q,
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
 benchmark_results <- bench::mark(
-  new_model$Residuals[["Residual_1Q"]],
-  unname(residuals_1Q["25%"]),
+  new_model$Residuals["Residual_1Q"],
+  residuals_1Q,
   iterations = 10,
-  check = FALSE
+  check = FALSE,
 )
 print(benchmark_results)
 ```
 
 Test the correctness and efficiency of the median residual Residual_Median
 ```{r}
-correctness_check <- all.equal(new_model$Residuals[["Residual_Median"]],
+correctness_check <- all.equal(new_model$Residuals["Residual_Median"],
                                residuals_median,
-                               tolerance = 1e-5)
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
-benchmark_results <- bench::mark(new_model$Residuals[["Residual_Median"]],
+benchmark_results <- bench::mark(new_model$Residuals["Residual_Median"],
                                  residuals_median,
                                  iterations = 10,
                                  check = FALSE)
@@ -151,14 +156,15 @@ print(benchmark_results)
 
 Test the correctness and efficiency of the 3Q residual Residual_3Q
 ```{r}
-correctness_check <- all.equal(new_model$Residuals[["Residual_3Q"]],
-                               unname(residuals_3Q["75%"]),
-                               tolerance = 1e-5)
+correctness_check <- all.equal(new_model$Residuals["Residual_3Q"],
+                               residuals_3Q,
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
 benchmark_results <- bench::mark(
-  new_model$Residuals[["Residual_3Q"]],
-  unname(residuals_3Q["75%"]),
+  new_model$Residuals["Residual_3Q"],
+  residuals_3Q,
   iterations = 10,
   check = FALSE
 )
@@ -167,13 +173,14 @@ print(benchmark_results)
 
 Test the correctness and efficiency of the maximum residual Residual_Max
 ```{r}
-correctness_check <- all.equal(new_model$Residuals[["Residual_Max"]],
+correctness_check <- all.equal(new_model$Residuals["Residual_Max"],
                                residuals_max,
-                               tolerance = 1e-5)
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
 benchmark_results <-
-  bench::mark(new_model$Residuals[["Residual_Max"]],
+  bench::mark(new_model$Residuals["Residual_Max"],
               residuals_max,
               iterations = 10,
               check = FALSE)
@@ -183,12 +190,12 @@ print(benchmark_results)
 ### Coefficients
 Test the correctness and efficiency of the Estimate \( \hat{\beta} \)
 ```{r}
-estimates <- as.vector(new_model$Coefficients$Estimate)
-names(estimates) <- rownames(new_model$Coefficients)
+estimates <- new_model$Coefficients$Estimate
 
 correctness_check <- all.equal(estimates,
                                coef(lm_model),
-                               tolerance = 1e-5)
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
 benchmark_results <- bench::mark(estimates,
@@ -200,11 +207,14 @@ print(benchmark_results)
 
 Test the correctness and efficiency of the Standard Error \( SE(\hat{\beta}) \)
 ```{r}
-stderror <- unname(as.vector(new_model$Coefficients$Std_Error))
+stderror <- new_model$Coefficients$Std_Error
 
-correctness_check <- all.equal(stderror,
-                               unname(lm_summary$coefficients[, "Std. Error"]),
-                               tolerance = 1e-5)
+correctness_check <- all.equal(
+  stderror,
+  lm_summary$coefficients[, "Std. Error"],
+  tolerance = 1e-5,
+  check.attributes = FALSE
+)
 print(correctness_check)
 
 benchmark_results <- bench::mark(
@@ -218,12 +228,14 @@ print(benchmark_results)
 
 Test the correctness and efficiency of the t value
 ```{r}
-tvalue <- as.vector(new_model$Coefficients$t_value)
-names(tvalue) <- rownames(new_model$Coefficients)
+tvalue <- new_model$Coefficients$t_value
 
-correctness_check <- all.equal(tvalue,
-                               lm_summary$coefficients[, "t value"],
-                               tolerance = 1e-5)
+correctness_check <- all.equal(
+  tvalue,
+  lm_summary$coefficients[, "t value"],
+  tolerance = 1e-5,
+  check.attributes = FALSE
+)
 print(correctness_check)
 
 benchmark_results <- bench::mark(tvalue,
@@ -235,12 +247,14 @@ print(benchmark_results)
 
 Test the correctness and efficiency of the p value
 ```{r}
-pvalue <- as.vector(new_model$Coefficients$p_value)
-names(pvalue) <- rownames(new_model$Coefficients)
-  
-correctness_check <- all.equal(pvalue,
-                               lm_summary$coefficients[, "Pr(>|t|)"],
-                               tolerance = 1e-5)
+pvalue <- new_model$Coefficients$p_value
+
+correctness_check <- all.equal(
+  pvalue,
+  lm_summary$coefficients[, "Pr(>|t|)"],
+  tolerance = 1e-5,
+  check.attributes = FALSE
+)
 print(correctness_check)
 
 benchmark_results <- bench::mark(pvalue,
@@ -255,7 +269,8 @@ Test the correctness and efficiency of Residual standard error \( \sigma \)
 ```{r}
 correctness_check <- all.equal(new_model$ModelStats$Residual_Std_Error,
                                lm_summary$sigma,
-                               tolerance = 1e-5)
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
 benchmark_results <- bench::mark(new_model$ModelStats$Residual_Std_Error,
@@ -269,7 +284,8 @@ Test the correctness and efficiency of R-squared\( R^2 \)
 ```{r}
 correctness_check <- all.equal(new_model$ModelStats$R_Squared,
                                lm_summary$r.squared,
-                               tolerance = 1e-5)
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
 benchmark_results <- bench::mark(new_model$ModelStats$R_Squared,
@@ -283,7 +299,8 @@ Test the correctness and efficiency of Adjusted R-squared \( \bar{R}^2 \)
 ```{r}
 correctness_check <- all.equal(new_model$ModelStats$Adj_R_Squared,
                                lm_summary$adj.r.squared,
-                               tolerance = 1e-5)
+                               tolerance = 1e-5,
+                               check.attributes = FALSE)
 print(correctness_check)
 
 benchmark_results <- bench::mark(new_model$ModelStats$Adj_R_Squared,
@@ -295,44 +312,61 @@ print(benchmark_results)
 
 Test the correctness and efficiency of F statistic
 ```{r}
-correctness_check <- all.equal(new_model$ModelStats$F_Statistic,
-                               unname(lm_summary$fstatistic["value"]),
-                               tolerance = 1e-5)
+correctness_check <- all.equal(
+  new_model$ModelStats$F_Statistic,
+  lm_summary$fstatistic["value"],
+  tolerance = 1e-5,
+  check.attributes = FALSE
+)
 print(correctness_check)
 
-benchmark_results <- bench::mark(new_model$ModelStats$F_Statistic,
-                                 unname(lm_summary$fstatistic["value"]),
-                                 iterations = 10,
-                                 check = FALSE)
+benchmark_results <- bench::mark(
+  new_model$ModelStats$F_Statistic,
+  lm_summary$fstatistic["value"],
+  iterations = 10,
+  check = FALSE
+)
 print(benchmark_results)
 ```
 
 Test the correctness and efficiency of the p value for F test
 ```{r}
-correctness_check <- all.equal(new_model$ModelStats$P_Value_F,
-                               unname(
-                 pf(
-                   lm_summary$fstatistic[1],
-                   lm_summary$fstatistic[2],
-                   lm_summary$fstatistic[3],
-                   lower.tail = FALSE
-                 )
-               ),
-                               tolerance = 1e-5)
+correctness_check <- all.equal(
+  new_model$ModelStats$P_Value_F,
+  
+  pf(
+    lm_summary$fstatistic[1],
+    lm_summary$fstatistic[2],
+    lm_summary$fstatistic[3],
+    lower.tail = FALSE
+  ),
+  tolerance = 1e-5,
+  check.attributes = FALSE
+)
 print(correctness_check)
 
-benchmark_results <- bench::mark(new_model$ModelStats$P_Value_F,
-                                 unname(
-                 pf(
-                   lm_summary$fstatistic[1],
-                   lm_summary$fstatistic[2],
-                   lm_summary$fstatistic[3],
-                   lower.tail = FALSE
-                 )
-               ),
-                                 iterations = 10,
-                                 check = FALSE)
+benchmark_results <- bench::mark(
+  new_model$ModelStats$P_Value_F,
+  pf(
+    lm_summary$fstatistic[1],
+    lm_summary$fstatistic[2],
+    lm_summary$fstatistic[3],
+    lower.tail = FALSE
+  ),
+  iterations = 10,
+  check = FALSE
+)
 print(benchmark_results)
+```
+Compare the efficiency of the model constructed by LinearReg() and that constructed by lm() & smmary() 
+```{r}
+# new_model <- LinearReg(Murder ~ Assault + UrbanPop + Rape, data = USArrests)
+# lm_model <- lm(Murder ~ Assault + UrbanPop + Rape, data = USArrests)
+# lm_summary <- summary(lm_model)
+benchmark = bench::mark(new_model,
+                        lm_summary,
+                        check = FALSE)
+print(benchmark)
 ```
 
 The Examples 1, 3, 4, and others can be tested using the same method as applied in Example 2.

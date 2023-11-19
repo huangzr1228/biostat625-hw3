@@ -11,9 +11,10 @@
 The LinearModel.new package is created to perform the linear regression by ordinary least squares (OLS) and calculate statistical measures of residuals, coefficients, and other significant statistics of the linear regression. 
 
 With the input of the formula and data, the package will return the data frame of results.<br>
-Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual  
-Coefficients: estimate, standard error, t value and p value  
-Other statistics: residual standard error, R-squared, adjusted R-squared, F statistic and p value for F test
+* Statistical measures of residuals: minimum residual, 1Q residual, median residual, 3Q residual and maximum residual  
+* Coefficients: estimate, standard error, t value and p value  
+
+* Other statistics: residual standard error, R-squared, adjusted R-squared, F statistic and p value for F test
 
 
 ## Installation
