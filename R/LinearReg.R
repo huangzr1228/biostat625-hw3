@@ -43,7 +43,8 @@ LinearReg <- function(formula, data) {
   n <- nrow(X)
   p <- ncol(X)
 
-  # calculate the coefficients and significant of the fitted model
+  # calculate the statistical measures of residuals, coefficients
+  # and other significant statistics of the fitted model
   beta_hat <- solve(t(X) %*% X) %*% t(X) %*% Y
   Y_hat <- X %*% beta_hat
   residuals <- Y - Y_hat
