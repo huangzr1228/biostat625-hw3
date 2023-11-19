@@ -20,10 +20,13 @@ With the input of the formula and data, the package will return the data frame o
 ## Installation
 You can install the development version of LinearModel.new from [GitHub](https://github.com/huangzr1228/biostat625-hw3) with:
 ```r
-# install the package
+# install the package "devtools"
+install.packages("devtools")
+
+# install the new package
 devtools::install_github("huangzr1228/biostat625-hw3")
 
-# build the vignitte
+# build the vignette
 devtools::install_github('huangzr1228/biostat625-hw3', build_vignettes =T)
 
 # browse the vignette 
